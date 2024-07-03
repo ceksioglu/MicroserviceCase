@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+
+  console-app:
+    build: ./backend/console-app/ConsoleApp
+    depends_on:
+      - rabbitmq
+
+  web-api:
+    build: ./backend/web-api/WebApiProject
+    depends_on:
+      - rabbitmq
+
+  react-app:
+    build: ./frontend/react-vite/fe-react
+    ports:
+      - "3000:3000"
+    depends_on:
+      - web-api
+
+volumes:
+  rabbitmq_data:

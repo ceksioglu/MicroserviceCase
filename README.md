@@ -25,7 +25,7 @@ This project is designed to test out a microservice architecture using a combina
 ### React Frontend
 
 - **Purpose**: Provides a user interface to input data, which is then sent to the Web API.
-- **Location**: (Assumed to be in a separate directory, not provided in the structure)
+- **Location**:  `frontend`
 
 ## Setup Instructions
 
